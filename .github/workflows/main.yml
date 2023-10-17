@@ -39,9 +39,11 @@ jobs:
         run: cd books
 
       - name: Install Dependencies
+        working-directory: books
         run: carton install
 
       - name: Run Tests
+        working-directory: books
         env:
           PLACK_ENV: test
         run: PLACK_ENV=test carton exec prove -lv t/
