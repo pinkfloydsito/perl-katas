@@ -22,7 +22,7 @@ startup_info: 1
 plugins:
   DBIC:
     default:
-      dsn: "dbi:Pg:dbname=books_db_test"
+      dsn: "dbi:Pg:dbname=books_db_test;host=localhost"
       schema_class: 'Book::Schema'
       user: 'postgres'
       password: 'postgres'
