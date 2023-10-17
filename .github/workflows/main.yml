@@ -1,0 +1,47 @@
+name: Run Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: books_db_test
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.30'
+
+      - name: Install Carton
+        run: cpanm Carton
+
+      - name: Set up PostgreSQL
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -U postgres -h localhost -d books_db_test -a -f books/db/base.ddl
+
+      - name: Change directory to your project directory
+        run: cd books
+
+      - name: Install Dependencies
+        run: carton install
+
+      - name: Run Tests
+        env:
+          PLACK_ENV: test
+        run: PLACK_ENV=test carton exec prove -lv t/
