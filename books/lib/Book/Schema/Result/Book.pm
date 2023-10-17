@@ -30,16 +30,15 @@ __PACKAGE__->table("book");
   is_nullable: 0
   sequence: 'book_id_seq'
 
+=head2 author
+
+  data_type: 'text'
+  is_nullable: 1
+
 =head2 title
 
   data_type: 'text'
-  is_nullable: 0
-
-=head2 author
-
-  data_type: 'varchar'
-  is_nullable: 0
-  size: 255
+  is_nullable: 1
 
 =cut
 
@@ -51,10 +50,10 @@ __PACKAGE__->add_columns(
     is_nullable       => 0,
     sequence          => "book_id_seq",
   },
-  "title",
-  { data_type => "text", is_nullable => 0 },
   "author",
-  { data_type => "varchar", is_nullable => 0, size => 255 },
+  { data_type => "text", is_nullable => 1 },
+  "title",
+  { data_type => "text", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -70,8 +69,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07051 @ 2023-10-12 15:05:06
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:+vzDzuuhBY3RxukY/sNeOQ
+# Created by DBIx::Class::Schema::Loader v0.07051 @ 2023-10-17 13:03:35
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:uwXWjeYmegX6y2hxFgDSLw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

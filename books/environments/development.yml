@@ -18,3 +18,11 @@ show_stacktrace: 1
 
 # print the banner
 startup_info: 1
+
+plugins:
+  DBIC:
+    development:
+      dsn: "dbi:Pg:dbname=books_db"
+      schema_class: 'Book::Schema'
+      user: 'postgres'
+      password: 'postgres'

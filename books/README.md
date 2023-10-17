@@ -18,7 +18,7 @@ This API is a simple service for managing books. It's implemented using the Danc
 We use DBIx::Class for interacting with the database. To generate or update the DBIC schema, run the following command:
 
 ```bash
-carton exec dbicdump  -o dump_directory=./lib Book::Schema 'dbi:Pg:dbname=books_db;host=localhost' demouser demouser_1234
+carton exec dbicdump  -o dump_directory=./lib Book::Schema 'dbi:Pg:dbname=books_db;host=localhost' postgres postgres
 ```
 
 Replace `/path/to/db.db` with the actual SQLite database file path.

@@ -1138,6 +1138,14 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  JSON-4.10
+    pathname: I/IS/ISHIGAKI/JSON-4.10.tar.gz
+    provides:
+      JSON 4.10
+      JSON::Backend::PP 4.10
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   JSON-MaybeXS-1.004005
     pathname: E/ET/ETHER/JSON-MaybeXS-1.004005.tar.gz
     provides:

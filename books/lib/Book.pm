@@ -4,14 +4,14 @@ use Dancer2::Plugin::DBIC;
 
 our $VERSION = '0.1';
 
-my %books = ();
-
 get '/' => sub {
     my @books = schema->resultset('Book')->all;
-    return to_json \@books;
+    return to_json \(test=> 1);
+
 };
 
 get '/:id' => sub {
+    my %books = ();
     my $id = route_parameters->get('id');
     if (exists $books{$id}) {
         return to_json $books{$id};
@@ -31,6 +31,7 @@ post '/' => sub {
 };
 
 del '/:id' => sub {
+    my %books = ();
     my $id = route_parameters->get('id');
 
     if(exists $books{$id}) {

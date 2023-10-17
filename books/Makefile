@@ -26,3 +26,14 @@ docker-build-db:
 
 docker-exec-db:
 	docker run -p 5432:5432 books_db
+
+setup-test-db:
+	@$(CREATEDB) -U $(DBUSER) -h $(DBHOST) -p $(DBPORT) books_db_test -E UTF8
+	@$(PSQL) -U $(DBUSER) -h $(DBHOST) -p $(DBPORT) -c "ALTER DATABASE books_db_test SET timezone TO 'UTC'" $(DBNAME)
+	@$(ECHO) ✅
+
+	@$(PSQL) -U $(DBUSER) -h $(DBHOST) -p $(DBPORT) books_db_test -f db/base.ddl
+
+
+start:
+	DBIC_TRACE=1 carton exec -- plackup -R ./lib -r bin/app.psgi

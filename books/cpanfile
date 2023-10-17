@@ -39,4 +39,4 @@ requires "Dancer2::Plugin::DBIC";
 requires "DBIx::Class::Schema::Loader";
 requires "DBIx::Class";
 requires "DBD::Pg";
-
+requires "JSON";

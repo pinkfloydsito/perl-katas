@@ -66,5 +66,11 @@ plugins:
     default:
       dsn: "dbi:Pg:dbname=books_db"
       schema_class: 'Book::Schema'
-      user: 'demouser'
-      password: 'demouser_1234'
+      user: 'postgres'
+      password: 'postgres'
+
+    # test:
+    #   dsn: "dbi:Pg:dbname=books_db_test"
+    #   schema_class: 'Book::Schema'
+    #   user: 'postgres'
+    #   password: 'postgres'
