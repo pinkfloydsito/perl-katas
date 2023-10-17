@@ -11,7 +11,7 @@ my $db_user     = 'postgres';
 my $db_password = 'postgres';
 my $db_host = 'localhost';
 
-my $dbh = DBI->connect("dbi:Pg:dbname=$db_name;dbhost=$db_host", $db_user, $db_password)
+my $dbh = DBI->connect("dbi:Pg:dbname=$db_name;host=$db_host", $db_user, $db_password)
     or die "Cannot connect to testing database: $DBI::errstr";
 
 
