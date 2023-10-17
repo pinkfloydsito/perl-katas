@@ -37,3 +37,6 @@ setup-test-db:
 
 start:
 	DBIC_TRACE=1 carton exec -- plackup -R ./lib -r bin/app.psgi
+
+test:
+	PLACK_ENV=test carton exec prove -lv t/
