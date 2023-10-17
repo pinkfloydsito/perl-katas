@@ -36,10 +36,6 @@ subtest 'GET / endpoint' => sub {
 
     my @books = @{$data};
 
-    foreach my $book (@books) {
-        print "Author: $book->{author}, Title: $book->{title}\n";
-    }
-
     is(scalar @books, 3, 'There are 3 books in the response');
 
     is($books[0]->{author}, 'Author 1', 'Author of the first book');

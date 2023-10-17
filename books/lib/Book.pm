@@ -5,6 +5,8 @@ use Dancer2::Plugin::DBIC;
 our $VERSION = '0.1';
 
 get '/' => sub {
+    response_header 'Content-Type' => 'application/json';
+
     my @books = schema->resultset('Book')->all;
     my @all_boooks = ();
     foreach(0..$#books){
