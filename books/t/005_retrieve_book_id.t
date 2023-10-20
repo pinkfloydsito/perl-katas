@@ -7,8 +7,8 @@ use JSON;
 use DBI;
 
 my $db_name     = 'books_db_test';
-my $db_user     = 'lamariajose.morillo';
-my $db_password = '';
+my $db_user     = 'postgres';
+my $db_password = 'postgres';
 my $db_host = 'localhost';
 
 my $dbh = DBI->connect("dbi:Pg:dbname=$db_name;host=$db_host", $db_user, $db_password)
