@@ -3,6 +3,7 @@ use warnings;
 use Test::More;
 use Plack::Test;
 use HTTP::Request::Common;
+use HTTP::Request::Common qw(DELETE);
 use JSON;
 use DBI;
 
@@ -25,7 +26,7 @@ subtest 'DELETE / endpoint' => sub {
     my $test = Test::More->builder;
 
     my $test_app = Plack::Test->create($app);
-    my $res = $test_app->request(HTTP::Request::Common::DELETE '/1');
+    my $res = $test_app->request(DELETE '/1');
 
     is($res->code, 200, 'Element was deleted');
 
