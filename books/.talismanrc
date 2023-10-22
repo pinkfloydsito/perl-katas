@@ -1,6 +1,0 @@
-fileignoreconfig:
-- filename: books/t/005_retrieve_book_id.t
-  checksum: 35f6995ffd9558b2b1bc4d20df35d3f2665541ace43b1f2bd165f4dbe5be77ca
-- filename: books/t/006_delete_book_by_id.t
-  checksum: ac5ad19dee6a97b83e2b700eb3cb603ad924a49e011d0555121dfc2705e16a1c
-version: ""
